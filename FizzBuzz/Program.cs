@@ -24,8 +24,3 @@ while (!userInputValid)
 
     Console.WriteLine(X + " " + Y + " " + N);
 }
-
-
-
-
-
