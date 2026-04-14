@@ -18,25 +18,24 @@ while (!userInputValid)
     Console.Write(inputText);
     userInput = Console.ReadLine();
 
-    // checking if input is empty
+    // Checking if input is empty
     if (string.IsNullOrWhiteSpace(userInput))
     {
         PrintError("Error: Input can not be empty, try again");
         continue;
     }
 
-    // spliting and sanitizing the input
+    // Spliting and cleaning input
     string[] parts = userInput.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-    // checking if I have 3 entries, if each entry is a integer and if yes save value in correct var
-    bool isThreeNumbers = parts.Length == 3 &&
+    // Checking if I have 3 entries, if each entry is a integer and if yes save value in correct var
+    bool areThreeNumbers = parts.Length == 3 &&
                           int.TryParse(parts[0], out X) &&
                           int.TryParse(parts[1], out Y) &&
                           int.TryParse(parts[2], out N);
 
-    // if any of above checks are incorrect, generate a general error message
-    // instead of doing lots of different individual checks
-    if (!isThreeNumbers)
+    // If any of areThreeNumbers checks are incorrect, generate a general error message
+    if (!areThreeNumbers)
     {
         PrintError("Error: Please enter exactly 3 whole numbers separated by spaces.");
         PrintError("Example: 3 5 20");
@@ -52,7 +51,7 @@ while (!userInputValid)
 
 
 
-//helper method for error messages
+// Helper method for error messages
 static void PrintError(string message)
 {
     Console.ForegroundColor = ConsoleColor.Red;
