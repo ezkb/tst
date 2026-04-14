@@ -21,7 +21,7 @@ while (!userInputValid)
     // Checking if input is empty
     if (string.IsNullOrWhiteSpace(userInput))
     {
-        PrintError("Error: Input can not be empty, try again");
+        PrintColored("Error: Input can not be empty, try again", ConsoleColor.Red);
         continue;
     }
 
@@ -37,31 +37,30 @@ while (!userInputValid)
     // If any of areThreeNumbers checks are incorrect, generate a general error message
     if (!areThreeNumbers)
     {
-        PrintError("Error: Please enter exactly 3 whole numbers separated by spaces.");
-        PrintError("Example: 3 5 20");
+        PrintColored("Error: Please enter exactly 3 whole numbers separated by spaces.", ConsoleColor.Red);
+        PrintColored("Example: 3 5 20", ConsoleColor.Yellow);
         continue;
     }
 
     // Check constraints: 1 ≤ X < Y ≤ N ≤ 100
     if (!(1 <= X && X < Y && Y <= N && N <= 100))
     {
-        PrintError("Error: " + constraintsText);
+        PrintColored("Error: " + constraintsText, ConsoleColor.Red);
         continue;
     }
 
-    Console.ForegroundColor = ConsoleColor.Yellow;
-    Console.WriteLine("\nEntered numbers are ok \nX: " + X + "\n" + "Y: " + Y + "\n" + "N: " + N);
-    Console.WriteLine("Continuing with fizzing");
-    Console.ResetColor();
+    PrintColored("\nEntered numbers are ok \nX: " + X + "\n" + "Y: " + Y + "\n" + "N: " + N,ConsoleColor.Green);
+    PrintColored("Continuing with fizzing",ConsoleColor.Green);
+
 
     userInputValid = true;
 }
 
 
 // Helper method for error messages
-static void PrintError(string message)
+static void PrintColored(string message, ConsoleColor color)
 {
-    Console.ForegroundColor = ConsoleColor.Red;
+    Console.ForegroundColor = color;
     Console.WriteLine(message);
     Console.ResetColor();
 }
