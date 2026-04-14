@@ -42,13 +42,20 @@ while (!userInputValid)
         continue;
     }
 
-    Console.WriteLine("X: "+ X + "\n" + "Y: " + Y + "\n" + "N: " + N);
+    // Check constraints: 1 ≤ X < Y ≤ N ≤ 100
+    if (!(1 <= X && X < Y && Y <= N && N <= 100))
+    {
+        PrintError("Error: " + constraintsText);
+        continue;
+    }
+
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("\nEntered numbers are ok \nX: " + X + "\n" + "Y: " + Y + "\n" + "N: " + N);
+    Console.WriteLine("Continuing with fizzing");
+    Console.ResetColor();
 
     userInputValid = true;
 }
-
-
-
 
 
 // Helper method for error messages
