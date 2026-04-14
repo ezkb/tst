@@ -1,7 +1,7 @@
 ﻿string welcomeText = "Welcome to Fizzbuzz!";
 string constraintsText = "FizzBuzz requires the following (1 ≤ X < Y ≤ N ≤ 100)";
 string inputText = "Please input according to pattern [X Y N]: ";
-string userInput;
+string userInput = string.Empty;
 
 int X = 0, Y = 0, N = 0;
 
@@ -16,7 +16,7 @@ while (!userInputValid)
     Console.WriteLine();
 
     Console.Write(inputText);
-    userInput = Console.ReadLine();
+    userInput = Console.ReadLine() ?? string.Empty;
 
     // Checking if input is empty
     if (string.IsNullOrWhiteSpace(userInput))
@@ -49,18 +49,22 @@ while (!userInputValid)
         continue;
     }
 
-
-
-    PrintColored("\nEntered numbers are ok \nX: " + X + "\n" + "Y: " + Y + "\n" + "N: " + N,ConsoleColor.Green);
-    PrintColored("Continuing with fizzing",ConsoleColor.Green);
-
-    for (int i = 1; i <= N; i++)
-    {
-        PrintColored(i);
-    }
-
-
     userInputValid = true;
+}
+
+PrintColored("\nEntered numbers are OK \nX: " + X + "\n" + "Y: " + Y + "\n" + "N: " + N, ConsoleColor.Green);
+PrintColored("Continuing with fizzing \n", ConsoleColor.Green);
+
+for (int i = 1; i <= N; i++)
+{
+    if (i % X == 0 && i % Y == 0)
+        PrintColored("FizzBuzz", ConsoleColor.Blue);
+    else if (i % X == 0)
+        PrintColored("Fizz", ConsoleColor.Cyan);
+    else if (i % Y == 0)
+        PrintColored("Buzz", ConsoleColor.Magenta);
+    else
+        PrintColored(i);
 }
 
 
