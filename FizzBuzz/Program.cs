@@ -49,16 +49,22 @@ while (!userInputValid)
         continue;
     }
 
+
+
     PrintColored("\nEntered numbers are ok \nX: " + X + "\n" + "Y: " + Y + "\n" + "N: " + N,ConsoleColor.Green);
     PrintColored("Continuing with fizzing",ConsoleColor.Green);
+
+    for (int i = 1; i <= N; i++)
+    {
+        PrintColored(i);
+    }
 
 
     userInputValid = true;
 }
 
 
-// Helper method for error messages
-static void PrintColored(string message, ConsoleColor color)
+static void PrintColored<T>(T message, ConsoleColor color = ConsoleColor.Gray)
 {
     Console.ForegroundColor = color;
     Console.WriteLine(message);
