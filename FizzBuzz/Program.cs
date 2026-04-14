@@ -12,7 +12,7 @@ bool userInputValid = false;
 // Starting with input checks and sanitization
 while (!userInputValid)
 {
-    // Visually preference to have a new line
+    // Visual preference to have a new line
     Console.WriteLine();
 
     Console.Write(inputText);
@@ -47,6 +47,11 @@ while (!userInputValid)
 
     userInputValid = true;
 }
+
+
+
+
+
 //helper method for error messages
 static void PrintError(string message)
 {
