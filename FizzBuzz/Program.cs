@@ -52,9 +52,11 @@ while (!userInputValid)
     userInputValid = true;
 }
 
+// Success message
 PrintColored("\nEntered numbers are OK \nX: " + X + "\n" + "Y: " + Y + "\n" + "N: " + N, ConsoleColor.Green);
 PrintColored("Continuing with fizzing \n", ConsoleColor.Green);
 
+// FizzBuzz printing
 for (int i = 1; i <= N; i++)
 {
     if (i % X == 0 && i % Y == 0)
@@ -66,7 +68,6 @@ for (int i = 1; i <= N; i++)
     else
         PrintColored(i);
 }
-
 
 static void PrintColored<T>(T message, ConsoleColor color = ConsoleColor.Gray)
 {
